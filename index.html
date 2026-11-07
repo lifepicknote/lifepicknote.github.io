@@ -1,0 +1,21 @@
+<!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>생활픽노트 상품 목록</title><meta name='description' content='생활픽노트 영상에 나온 상품 링크 모음'><style>
+:root{--bg:#f6f7f5;--card:#fff;--ink:#1b2420;--muted:#66726d;--line:#e2e7e4;--accent:#0f6b5c;--accent-ink:#fff;--no:#ffd84d}
+@media (prefers-color-scheme:dark){:root{--bg:#121715;--card:#1b2220;--ink:#eef2f0;--muted:#9aa6a1;--line:#2b3431;--accent:#3fb59f;--accent-ink:#0b1210}}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px 48px}
+header h1{font-size:22px;margin:4px 0 2px}header p{margin:0;color:var(--muted);font-size:14px}
+.disc{margin:14px 0 16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);font-size:13px;color:var(--muted)}
+.search{position:sticky;top:0;padding:8px 0;background:var(--bg);z-index:2}
+.search input{width:100%;font-size:17px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+.list{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.item{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.no{flex:none;min-width:52px;height:52px;padding:0 8px;border-radius:12px;background:var(--no);color:#1b2420;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.txt{flex:1;min-width:0}.name{font-weight:700;font-size:15.5px;line-height:1.35;word-break:keep-all}.meta{color:var(--muted);font-size:12.5px;margin-top:2px}
+.go{flex:none;text-decoration:none;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:14px;padding:10px 12px;border-radius:10px;white-space:nowrap}
+.empty{color:var(--muted);text-align:center;padding:30px 0;display:none}
+footer{margin-top:22px;color:var(--muted);font-size:12px;text-align:center}
+</style></head><body><div class='wrap'><header><h1>생활픽노트 상품 목록</h1><p>영상에서 말한 번호를 검색하세요</p></header><div class='disc'>이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</div><div class='search'><input id='q' type='search' inputmode='search' placeholder='번호 또는 상품 이름 (예: 1)' aria-label='번호 또는 상품 이름 검색'></div><div class='list'></div><div class='empty' id='empty'>찾는 번호가 없어요</div><footer>업데이트 2026-11-07 · 가격과 재고는 쿠팡 페이지에서 확인하세요</footer></div><script>
+(function(){var q=document.getElementById('q'),items=[].slice.call(document.querySelectorAll('.item')),e=document.getElementById('empty');
+function f(){var v=q.value.trim().toLowerCase().replace(/번$/,''),n=0;items.forEach(function(it){var ok=!v||it.dataset.no===v||it.dataset.k.indexOf(v)>=0;it.style.display=ok?'':'none';if(ok)n++});e.style.display=n?'none':'block'}
+q.addEventListener('input',f);var h=(location.hash||'').replace('#','');if(h){q.value=decodeURIComponent(h);f()}})();
+</script></body></html>
